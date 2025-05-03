@@ -14,8 +14,8 @@ flowchart TD
     I --> K(New Web)
     end
     G -->|provides report JSON| MATRIX
-    D -->|log tail| FAST-MATRIX
-    B -->   |CPAN::Testers::WWW::
+    B -->|log tail| FAST-MATRIX
+    D -->   |CPAN::Testers::WWW::
             Reports::Query::Reports
             or CPAN::Testers::WWW::
             Reports::Query::Report| FAST2-MATRIX
