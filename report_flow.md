@@ -15,8 +15,10 @@ flowchart TD
     end
     G -->|provides report JSON| MATRIX
     B -->|log tail| FAST-MATRIX
-    D -->   |CPAN::Testers::WWW::
-            Reports::Query::Reports
-            or CPAN::Testers::WWW::
-            Reports::Query::Report| FAST2-MATRIX
+    G --> cgi-bin/reports-metadata.cgi
+    cgi-bin/reports-metadata.cgi --> L(CPAN::Testers::WWW
+          ::Reports::Query::Reports)
+    L --> M(andl-cpan-tools/
+          refill-cpanstatsdb.pl)
+    M --> FAST2-MATRIX
 ```
