@@ -12,6 +12,6 @@ flowchart TD
     I --> J(New Stats DB)
     I --> K(New Stats DB)
     G -->|provides report JSON| MATRIX
-    D -->|ask andreas, sql magic| FAST-MATRIX
-    B -->|log tail| FAST2-MATRIX
+    D -->|log tail| FAST-MATRIX
+    B -->|CPAN::Testers::WWW::Reports::Query::Reports or CPAN::Testers::WWW::Reports::Query::Report| FAST2-MATRIX
 ```
