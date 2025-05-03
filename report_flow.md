@@ -8,10 +8,15 @@ flowchart TD
     D --> F(API Mojo)
     D --> G(Web Mojo)
     B -->|NEW DESIGN| H(Tag Extractor)
+    subgraph new design
     H --> I(New Stats DB)
-    I --> J(New Stats DB)
-    I --> K(New Stats DB)
+    I --> J(New API)
+    I --> K(New Web)
+    end
     G -->|provides report JSON| MATRIX
     D -->|log tail| FAST-MATRIX
-    B -->|CPAN::Testers::WWW::Reports::Query::Reports or CPAN::Testers::WWW::Reports::Query::Report| FAST2-MATRIX
+    B -->   |CPAN::Testers::WWW::
+            Reports::Query::Reports
+            or CPAN::Testers::WWW::
+            Reports::Query::Report| FAST2-MATRIX
 ```
