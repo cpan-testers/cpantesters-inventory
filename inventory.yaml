@@ -1,16 +1,24 @@
-Servers:
+Servers: # see https://github.com/cpan-testers/cpantesters-deploy/wiki
   cpantesters4.dh.bytemark.co.uk:
     admin_acc: [ preaction, srezic, anwar, nhorne, scottchiefbaker, ferki, geekruthie, mithaldu ]
-    funding:
+    funding: Donated by Bytemark
+    support: support@bytemark.co.uk
   cpantesters3.dh.bytemark.co.uk: # ???
-    admin_acc:
-    funding:
+    admin_acc: []
+    funding: Mark Keating (Enlightened Perl Organization)
+    support: support@bytemark.co.uk
   db-primary-1.cpantesters.org:
-    admin_acc:
-    funding:
+    admin_acc: []
+    funding: 
+    support: 
   db-replica-1.cpantesters.org:
-    admin_acc:
-    funding:
+    admin_acc: []
+    funding: 
+    support: 
+  monitor.preaction.me:
+    admin_acc: []
+    funding: Donated by Doug Bell
+    support: Doug Bell (doug@preaction.me)
 
 Domains:
   cpantesters.org:
