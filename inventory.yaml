@@ -1,81 +1,46 @@
 Servers: # see https://github.com/cpan-testers/cpantesters-deploy/wiki
-  cpantesters4.dh.bytemark.co.uk:
+  cpantesters4.dh.bytemark.co.uk: # UK, primary node
     admin_acc: [ preaction, srezic, anwar, nhorne, scottchiefbaker, ferki, geekruthie, mithaldu ]
     funding: Donated by Bytemark
     support: support@bytemark.co.uk
-  cpantesters3.dh.bytemark.co.uk: # ???
-    admin_acc: []
+  cpantesters3.dh.bytemark.co.uk: # UK, secondary / legacy website, no domain pointed at
+    admin_acc: [ preaction ]
     funding: Mark Keating (Enlightened Perl Organization)
     support: support@bytemark.co.uk
-  db-primary-1.cpantesters.org:
-    admin_acc: []
-    funding: 
-    support: 
-  db-replica-1.cpantesters.org:
-    admin_acc: []
-    funding: 
-    support: 
-  monitor.preaction.me:
-    admin_acc: []
+  db-primary-1.cpantesters.org: # Chicago
+    admin_acc: [ preaction, scottchiefbaker, ferki, geekruthie, mithaldu ]
+    funding: Joel Berger's employer provides employee machine
+  db-replica-1.cpantesters.org: # Chicago
+    admin_acc: [ preaction, scottchiefbaker, ferki, geekruthie, mithaldu ]
+    funding: Joel Berger's employer provides employee machine
+  monitor.preaction.me: # Grafana
+    admin_acc: [ preaction, scottchiefbaker, ferki, geekruthie, mithaldu ]
     funding: Donated by Doug Bell
     support: Doug Bell (doug@preaction.me)
+  deps.perlconsultancy.com:
+    admin_acc: [ Openstrike Pete Houston ]
+    funding: Openstrike Pete Houston
+
 
 Domains:
-  cpantesters.org:
-    admin_acc:
-    funding:
+  cpantesters.com: # ? expired, preaction had them
+  cpantesters.net: # ?
+
+  cpantesters.org: # via cloudflare
+    admin_acc: [ preaction, scottchiefbaker, ferki, geekruthie, mithaldu, haarg ]
+    funding: TPF
     urls:
-      https://www.cpantesters.org:
-        points_at: cpantesters-web
-      https://matrix.cpantesters.org:
-        points_at:
-      https://fast-matrix.cpantesters.org:
-        points_at:
-      https://fast2-matrix.cpantesters.org:
-        points_at:
-      https://api.cpantesters.org:
-        points_at:
-      https://status.cpantesters.org:
-        points_at:
-      https://www-2.cpantesters.org:
-        points_at:
-
-Services_Ext:
-  matrix:
-    lives_on:
-    provides:
-    depends_on:
-  fast-matrix:
-    lives_on:
-    provides:
-    depends_on:
-  fast2-matrix:
-    lives_on:
-    provides:
-    depends_on:
-  cpantesters-legacy-metabase:
-    lives_on: cpantesters4.dh.bytemark.co.uk
-    provides:
-    depends_on:
-  cpantesters-api:
-    lives_on: cpantesters4.dh.bytemark.co.uk
-    provides:
-    depends_on:
-  cpantesters-web:
-    lives_on: cpantesters4.dh.bytemark.co.uk
-    provides:
-    depends_on:
-  cpantesters-web-beta:
-    lives_on: cpantesters4.dh.bytemark.co.uk
-    provides:
-    depends_on:
-  cpantesters-beam-minion:
-    lives_on: cpantesters4.dh.bytemark.co.uk
-    provides:
-    depends_on:
-
-Services_Int:
-  "****.pl":
-    lives_on:
-    provides:
-    depends_on:
+      https://metabase.cpantesters.org: { points_at: cpantesters-api }
+      https://api.cpantesters.org: { points_at: cpantesters-api }
+      https://cpan.cpantesters.org: { points_at: cpan-mirror }
+      https://backpan.cpantesters.org: { points_at: backpan }
+      https://www.cpantesters.org: { points_at: cpantesters-web, on: cpantesters4 } # via fastly
+      https://www-2.cpantesters.org: { points_at: cpantesters-web, on: cpantesters4 } # direct
+      https://www-1.cpantesters.org: { points_at: cpantesters-web, on: cpantesters3 } # direct
+      https://status.cpantesters.org: { points_at: cpantesters-deploy }
+      https://monitor.preaction.me: { points_at: cpantesters-deploy } # alias for https://status.cpantesters.org
+      https://matrix.cpantesters.org: { points_at: matrix }
+      https://fast-matrix.cpantesters.org: { points_at: fast-matrix }
+      https://fast2-matrix.cpantesters.org: { points_at: fast2-matrix }
+      https://deps.cpantesters.org: { points_at: deps.perlconsultancy.com }
+      https://stats.cpantesters.org: { points_at: legacy site on cpantesters3 } # superseded by monitor
