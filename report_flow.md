@@ -18,8 +18,9 @@ flowchart TD
                show/DBIx-Class.json)
       --> M2[(MATRIX)]
 
-    G --> repmeta(cpantesters.org/
-        cgi-bin/reports-metadata.cgi)
+    G --> repmeta(cpantesters.org/cgi-bin
+        /reports-metadata.cgi
+        virtual route)
       --> qreports(CPAN::Testers::WWW
           ::Reports::Query::Reports)
       --> refill(andk-cpan-tools/
