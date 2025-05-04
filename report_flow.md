@@ -2,7 +2,10 @@ This flowchart describes where a test report goes. It's most easily edited with 
 
 ```mermaid
 flowchart TD
-    A[CPAN client] -->|Generates Test Report| B(Metabase - Ingest)
+    A[CPAN client]
+      --> inurl[metabase.cpantesters.org
+          /api/v1/]
+      --> B(Metabase - Ingest)
       -->|Enqueues| C(Backend - Minion)
     C -->|Processes| D(Stats Mysql DB)
     D --> F(API Mojo)
